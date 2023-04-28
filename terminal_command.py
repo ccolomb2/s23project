@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """to print reference in the terminal"""
 
 import click
@@ -16,6 +15,3 @@ def terminal(bibtex, ris):
     if ris:
         result = Works(ris)
         click.echo(result.ris())
-=======
-"""for command that print in the terminal"""
->>>>>>> ea9841f2e16228fa57c9b1eb6d51695e8cb49407
