@@ -2,11 +2,13 @@
 
 # import base64
 import requests
+
 # from IPython.display import HTML
 
 
 class Works:
     "creates the self variables"
+
     def __init__(self, oaid):
         "creates the self variables"
         self.oaid = oaid
@@ -17,28 +19,27 @@ class Works:
     def ris(self):
         "creates the self variables"
         fields = []
-        if self.data['type'] == 'journal-article':
-            fields += ['TY  - JOUR']
+        if self.data["type"] == "journal-article":
+            fields += ["TY  - JOUR"]
         else:
-            raise Exception("Unsupported type {self.data['type']}") #raise...
-        
-        for author in self.data['authorships']: #for each author, do a line
+            raise Exception("Unsupported type {self.data['type']}")  # raise...
+
+        for author in self.data["authorships"]:  # for each author, do a line
             fields += [f'AU  - {author["author"]["display_name"]}']
-            
+
         fields += [f'PY  - {self.data["publication_year"]}']
         fields += [f'TI  - {self.data["title"]}']
         fields += [f'JO  - {self.data["host_venue"]["display_name"]}']
         fields += [f'VL  - {self.data["biblio"]["volume"]}']
-        
-        if self.data['biblio']['issue']:
+
+        if self.data["biblio"]["issue"]:
             fields += [f'IS  - {self.data["biblio"]["issue"]}']
-        
-        
+
         fields += [f'SP  - {self.data["biblio"]["first_page"]}']
         fields += [f'EP  - {self.data["biblio"]["last_page"]}']
         fields += [f'DO  - {self.data["doi"]}']
-        fields += ['ER  -']
-                
+        fields += ["ER  -"]
+
         # ris = '\n'.join(fields)
         # return ris
         for field in fields:
@@ -51,7 +52,7 @@ class Works:
         if len(_authors) == 1:
             authors = _authors[0]
         elif len(_authors) > 1:
-            authors = ", ".join(_authors[0:-1]) + " and " + _authors[-1]
+            authors = ", ".join(_authors[0:-1]) + " and" + _authors[-1]
 
         else:
             authors = "No authors reported on database."
@@ -75,9 +76,11 @@ class Works:
         )
         year = self.data["publication_year"]
 
-        reference = (f'author = {{{authors}}},\njournal = {{{journal}}},\ntitle = {{{title}}},'
-        f'\nvolume = {{{volume}}},\nissue  = {{{issue1}}},'
-        f'\npages = {{{pages}}},\nyear = {{{year}}}')
+        reference = (
+            f"author = {{{authors}}},\njournal = {{{journal}}},\ntitle = {{{title}}},"
+            f"\nvolume = {{{volume}}},\nissue  = {{{issue1}}},"
+            f"\npages = {{{pages}}},\nyear = {{{year}}}"
+        )
 
         return reference
 

@@ -19,7 +19,7 @@ ER  -"""
 def test_ris():
     "test ris"
     work_obj = Works("https://doi.org/10.1021/acscatal.5b00538")
-    assert REF_RIS == work_obj.ris()
+    assert work_obj.ris() == REF_RIS
 
 
 REF_BIBTEX = """author = {John R. Kitchin},
@@ -35,4 +35,5 @@ def test_bibtex():
     "test bibtex"
     work_obj = Works("https://doi.org/10.1021/acscatal.5b00538")
     assert work_obj.bibtex() == REF_BIBTEX
+
     
