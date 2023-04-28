@@ -1,0 +1,8 @@
+import click
+
+@click.command()
+@click.option('--name', default='World', help='Enter your name')
+@click.option('--age', default=18, help='Enter your age')
+def hello(name, age):
+    """Prints a personalized greeting."""
+    click.echo(f'Hello, {name}! You are {age} years old.')
