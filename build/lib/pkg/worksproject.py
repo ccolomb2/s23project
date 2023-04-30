@@ -78,4 +78,3 @@ class Works:
         ris = "\n".join(fields)
 
         return ris
-
