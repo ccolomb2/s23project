@@ -8,5 +8,5 @@ jobs:
     steps:      
       - uses: actions/checkout@v3
       - run: |
-          pip install pytest
-          pytest s23project/pkg/test.py
+          pip install requests click pytest
+          pytest -v s23project/pkg/test.py
