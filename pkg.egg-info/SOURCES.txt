@@ -1,0 +1,10 @@
+setup.py
+pkg/__init__.py
+pkg/terminal_command.py
+pkg/test.py
+pkg/worksproject.py
+pkg.egg-info/PKG-INFO
+pkg.egg-info/SOURCES.txt
+pkg.egg-info/dependency_links.txt
+pkg.egg-info/entry_points.txt
+pkg.egg-info/top_level.txt

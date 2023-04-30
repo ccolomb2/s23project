@@ -1,0 +1,3 @@
+[console_scripts]
+commandline = s23project.terminal_command:terminal
+
